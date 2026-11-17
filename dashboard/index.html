@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Token Radar 01 — Protocol Launch & Farm Radar</title>
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -13,7 +14,7 @@
         <div id="metaInfo" class="meta-info">Loading snapshot...</div>
       </div>
       <div id="modelBanner" class="model-banner">
-        Model formula: Implied Value = TVL × Base Multiple (dynamic trimmed mean ~0.25) × Growth Factor (7d change) × Age Factor (maturity) × Chain Factor × Category Factor × Confidence Factor.
+        Model formula: Implied Value = TVL × Base Multiple (dynamic trimmed mean of live mcap/TVL, calibrated from the snapshot) × Growth Factor (7d change) × Age Factor (maturity) × Chain Factor × Category Factor × Confidence Factor.
       </div>
       <div id="statsBar" class="stats-bar"></div>
     </header>
