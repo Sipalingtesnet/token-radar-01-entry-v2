@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Token Radar 01 — Protocol Launch & Farm Radar</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title-row">
+        <h1>Token Radar 01</h1>
+        <div id="metaInfo" class="meta-info">Loading snapshot...</div>
+      </div>
+      <div id="modelBanner" class="model-banner">
+        Model formula: Implied Value = TVL × Base Multiple (dynamic trimmed mean ~0.25) × Growth Factor (7d change) × Age Factor (maturity) × Chain Factor × Category Factor × Confidence Factor.
+      </div>
+      <div id="statsBar" class="stats-bar"></div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="board">Pre-Token Board (<span id="tabBoardCount">0</span>)</button>
+      <button class="tab-btn" data-tab="live">Already Trading (<span id="tabLiveCount">0</span>)</button>
+    </div>
+
+    <div id="boardControls" class="controls">
+      <input type="text" id="searchInput" placeholder="Search protocol name, slug, category, chain...">
+      <select id="categorySelect">
+        <option value="">All Categories</option>
+      </select>
+      <select id="chainSelect">
+        <option value="">All Chains</option>
+      </select>
+      <label class="checkbox-label">
+        <input type="checkbox" id="watchlistOnlyCheck"> Watchlist only
+      </label>
+      <select id="sortSelect">
+        <option value="rank">Sort: Implied Value (Rank)</option>
+        <option value="tvl">Sort: TVL (High to Low)</option>
+        <option value="change">Sort: 7d Change (High to Low)</option>
+        <option value="age">Sort: Age (Oldest first)</option>
+        <option value="name">Sort: Name (A-Z)</option>
+      </select>
+    </div>
+
+    <div id="detailPanel" class="detail-panel">
+      <div class="detail-header">
+        <h2 id="detailTitle">Protocol Detail</h2>
+        <button class="detail-close" id="detailClose">&times;</button>
+      </div>
+      <div id="detailContent"></div>
+    </div>
+
+    <div class="table-wrapper">
+      <table id="radarTable">
+        <thead>
+          <tr id="tableHeaderRow">
+            <th>Rank</th>
+            <th>Protocol</th>
+            <th>Category</th>
+            <th>Chains</th>
+            <th>TVL</th>
+            <th>7d Change</th>
+            <th>Age</th>
+            <th>Confidence</th>
+            <th>Implied Value</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <p>Records no token (DefiLlama snapshot data). Implied value is this entry's own claim, never a make.fun prediction.</p>
+    </footer>
+  </div>
+
+  <script src="../data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
